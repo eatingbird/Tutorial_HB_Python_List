@@ -183,6 +183,18 @@ def mult_numbers(numbers):
     if numbers == []: return 1
     return reduce(lambda x, y: x * y, numbers)
 
+    # #Question1:
+    # return reduce(lambda x=1, y=1: x * y, numbers)
+    # #above will result
+    # #TypeError: reduce() of empty sequence with no initial value
+    # #Should it not take the innitial value one onto x, y?
+
+    ##Question2:
+    ##Syntax below do not work. Is there any way to use
+    ##similar logig (not the value) to return boolean?
+    ##if(!numbers[0]): return 1
+    # if(not numbers[0]): return 1
+
 
 def join_strings(words):
     """Return a string of all input strings joined together.

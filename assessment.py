@@ -112,7 +112,7 @@ def foods_in_common(foods1, foods2):
     #         result.append(item)
     # return sorted(result)
 
-    # # Solution 4 (no built in function used)
+    # # Solution 4 (built in del used)
     # intersection = [food for food in foods1 if food in foods2]
     # for i in range(0,len(intersection)-1):
     #     if intersection[i]>intersection[i+1]:
@@ -120,11 +120,13 @@ def foods_in_common(foods1, foods2):
     #         del intersection[i]
     # return intersection
 
-    # Solution 5 (no built in function used, set used)
+    # Solution 5 (set used, built-in del used)
     intersection = list(set(foods1) & set(foods2))
     for i in range(0,len(intersection)-1):
-        if intersection[i]>intersection[i+1]:
-            intersection += [intersection[i]]
+        prev = intersection[i]
+        current = intersection[i+1]
+        if prev>current:
+            intersection += [prev]
             del intersection[i]
     return intersection
 
@@ -175,14 +177,17 @@ def largest_n_items(items, n):
         [3, 3]
     """
 
-    # # Solution 1 (Built in function sorted used)
-    # if n ==0: return []
-    # return sorted(items)[-n:]
+    # Solution 1 (Built in function sorted used)
+    if n ==0: return []
+    return sorted(items)[-n:]
 
-    # Solution 2 (No built in function used.)
-    result = []
-    for item in items:
-
+    # # Solution 2 (No built in function used.)
+    #small_to_larges = []
+    #for i in range(0:len(items)-1):
+    #   for j in range(0:len(larger_list)-1)       
+    #       if items[i]<items[i+1]:
+    #       
+    # return items[:n]
 
 
 #####################################################################

@@ -237,53 +237,55 @@ def average(numbers):
     a feel free to provide a good solution here.)
     """
 
-    return 0
+    return reduce(lambda x,y: x+y, numbers)/float(len(numbers))
 
 
-# def join_strings_with_comma(words):
-#     """Return ['list', 'of', 'words'] like "list, of, words".
+def join_strings_with_comma(words):
+    """Return ['list', 'of', 'words'] like "list, of, words".
 
-#     For example::
+    For example::
 
-#         >>> join_strings_with_comma(
-#         ...     ["Labrador", "Poodle", "French Bulldog"]
-#         ...     )
-#         'Labrador, Poodle, French Bulldog'
+        >>> join_strings_with_comma(
+        ...     ["Labrador", "Poodle", "French Bulldog"]
+        ...     )
+        'Labrador, Poodle, French Bulldog'
 
-#     If there's only one thing in the list, it should return just that
-#     thing, of course::
+    If there's only one thing in the list, it should return just that
+    thing, of course::
 
-#         >>> join_strings_with_comma(["Pretzel"])
-#         'Pretzel'
-#     """
+        >>> join_strings_with_comma(["Pretzel"])
+        'Pretzel'
+    """
 
-#     return ""
+    if len(words)==1: return words[0]
+    if len(words)==0: return
+    return reduce(lambda x, y: x+", "+y, words)
 
 
-# def reverse_list(items):
-#     """Return the input list, reversed.
+def reverse_list(items):
+    """Return the input list, reversed.
 
-#     **Do not use** the python function `reversed()` or the method
-#     `list.reverse()`.
+    **Do not use** the python function `reversed()` or the method
+    `list.reverse()`.
 
-#     For example::
+    For example::
 
-#         >>> reverse_list([1, 2, 3])
-#         [3, 2, 1]
+        >>> reverse_list([1, 2, 3])
+        [3, 2, 1]
 
-#         >>> reverse_list(["cookies", "love", "I"])
-#         ['I', 'love', 'cookies']
+        >>> reverse_list(["cookies", "love", "I"])
+        ['I', 'love', 'cookies']
 
-#     You should do this without changing the original list::
+    You should do this without changing the original list::
 
-#         >>> orig = ["apple", "berry", "cherry"]
-#         >>> reverse_list(orig)
-#         ['cherry', 'berry', 'apple']
-#         >>> orig
-#         ['apple', 'berry', 'cherry']
-#     """
+        >>> orig = ["apple", "berry", "cherry"]
+        >>> reverse_list(orig)
+        ['cherry', 'berry', 'apple']
+        >>> orig
+        ['apple', 'berry', 'cherry']
+    """
 
-#     return []
+    return items[::-1]
 
 
 # def reverse_list_in_place(items):
@@ -309,8 +311,7 @@ def average(numbers):
 #         ['I', 'love', 'cookies']
 #     """
 
-#     return []
-
+#     return None
 
 # def duplicates(items):
 #     """Return list of words from input list which were duplicates.

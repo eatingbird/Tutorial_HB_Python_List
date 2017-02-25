@@ -53,14 +53,15 @@ def print_indices(items):
         3 Volvo
     
     """
-    for i, v in enumerate(items):
-         print str(i)+" "+ v
 
-    # # Alternative solution
-    # cnt = 0
-    # for item in items:
-    #     print str(cnt)+" "+item
-    #     cnt += 1
+    cnt = 0
+    for item in items:
+        print str(cnt)+" "+item
+        cnt += 1
+
+    ## Alternative solution (Due to the assignment description, not used.)
+    # for i, v in enumerate(items):
+    #      print str(i)+" "+ v
 
     # I was trying to make it one line, but could not succeed
     # Is there a way to iterate in one line without making it a list?
@@ -96,19 +97,36 @@ def foods_in_common(foods1, foods2):
 
     """
 
-    return sorted(list(set(foods1) & set(foods2)))
+    # Solution 1 (built in sorted used)
+    # return sorted(list(set(foods1) & set(foods2)))
 
-    # #Alternative solution 1
+    ##Solution 2 (built in sort used)
     # a = list(set(foods1) & set(foods2))
     # a.sort()
     # return a
 
-    # # Alternative solution 2
+    ## Solution 3 (built in append/sorted used)
     # result = []
     # for item in foods1:
     #     if item in foods2:
     #         result.append(item)
     # return sorted(result)
+
+    # # Solution 4 (no built in function used)
+    # intersection = [food for food in foods1 if food in foods2]
+    # for i in range(0,len(intersection)-1):
+    #     if intersection[i]>intersection[i+1]:
+    #         intersection += [intersection[i]]
+    #         del intersection[i]
+    # return intersection
+
+    # Solution 5 (no built in function used, set used)
+    intersection = list(set(foods1) & set(foods2))
+    for i in range(0,len(intersection)-1):
+        if intersection[i]>intersection[i+1]:
+            intersection += [intersection[i]]
+            del intersection[i]
+    return intersection
 
 
 def every_other_item(items):
@@ -125,13 +143,14 @@ def every_other_item(items):
        ['you', 'are', 'good', 'at', 'code']
     """
 
-    return [item for item in items if items.index(item)%2==0]
+    # # Solution 1 (built in function index used)
+    # return [item for item in items if items.index(item)%2==0]
 
-    # #Alternative solution
-    # result = []
-    # for every_other_index in range(0,len(items),2):
-    #     result.append(items[every_other_index])
-    # return result
+    # Solution 2 (no built in function used)
+    result = []
+    for every_other_index in range(0,len(items),2):
+        result+=[items[every_other_index]]
+    return result
 
 
 def largest_n_items(items, n):
@@ -156,8 +175,14 @@ def largest_n_items(items, n):
         [3, 3]
     """
 
-    if n ==0: return []
-    return sorted(items)[-n:]
+    # # Solution 1 (Built in function sorted used)
+    # if n ==0: return []
+    # return sorted(items)[-n:]
+
+    # Solution 2 (No built in function used.)
+    result = []
+    for item in items:
+
 
 
 #####################################################################
